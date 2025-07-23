@@ -32,12 +32,9 @@ const Content = () => (
   <div id="home" className="bg-[#F5F5DC] grid grid-cols-1 lg:grid-cols-2">
     
     {/* Left */}
-    {/* <div 
-    className="relative min-h-[600px]"
-    > */}
-      <div className="relative h-[80vh]">
-      <div className="bg-[#ff914d] h-[80vh] rounded mr-[30%]" />
 
+      <div className="relative sm:h-[100vh]">
+      <div className="bg-[#ff914d] h-[60vh] sm:h-[70vh] lg:h-[80vh] rounded mr-[30%]" />
       <motion.img
         src="./img/3.jpg"
         alt="me"
@@ -67,7 +64,7 @@ const Content = () => (
       }}
       >
         <p className="text-6xl md:text-8xl m-3 truncate">
-          H <span className="font-bold text-[#ff914d]">ﾑ</span> N Zs
+          H <span className="font-bold text-[#ff914d]">ﾑ</span> N Z
         </p>
         <ul className="flex gap-2 m-5">
           {platform.map(({ label, icon, url }) => (
