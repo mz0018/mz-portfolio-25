@@ -40,7 +40,7 @@ const Content = () => (
         src="/img/3.jpg"
         alt="me"
         loading="lazy"
-        className="absolute bottom-0 right-0 lg:-right-3 h-[80] w-[70vw] lg:w-[40vw] object-cover rounded z-10 shadow-xl"
+        className="absolute bottom-0 right-0 lg:-right-3 h-[80vh] w-[70vw] lg:w-[40vw] object-cover rounded z-10 shadow-xl"
         variants={fadeIn}
         initial="hidden"
         whileInView="visible"
