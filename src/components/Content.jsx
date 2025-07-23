@@ -36,16 +36,17 @@ const Content = () => (
     className="relative min-h-[600px]"
     >
       <div className="bg-[#ff914d] h-[80vh] rounded mr-[30%]" />
+
       <motion.img
-        src="/img/3.jpg"
+        src="./img/3.jpg"
         alt="me"
         loading="lazy"
-        className="absolute bottom-0 right-0 lg:-right-3 h-[80vh] w-[70vw] lg:w-[40vw] object-cover rounded z-10 shadow-xl"
+        className="absolute bottom-0 right-0 lg:-right-3 w-[70vw] h-[70vw] max-w-[500px] max-h-[500px] object-cover rounded z-10 shadow-xl"
         variants={fadeIn}
         initial="hidden"
         whileInView="visible"
         whileHover={{ scale: 1.2 }}
-        whileTap={{ scale:0.8 }}
+        whileTap={{ scale: 0.8 }}
         viewport={{
           once: false, amount: 0.1
         }}
