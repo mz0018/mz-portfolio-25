@@ -1,85 +1,86 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import Sidebar from "./components/Sidebar";
 
-const Navbar = lazy(() => import("./components/Navbar"));
-const Content = lazy(() => import("./components/Content"));
-const Projects = lazy(() => import("./components/Projects"));
-const WebApp = lazy(() => import("./components/WebApp"));
-const Footer = lazy(() => import("./components/Footer"));
+const componentsLazy = {
+  Navbar: lazy(() => import("./components/Navbar")),
+  Content: lazy(() => import("./components/Content")),
+  Projects: lazy(() => import("./components/Projects")),
+  WebApp: lazy(() => import("./components/WebApp")),
+  Footer: lazy(() => import("./components/Footer")),
+};
+
+const navLinks = [
+  { label: "Home", icon: "Home", targetId: "home" },
+  { label: "Projects", icon: "Folder", targetId: "projects" },
+  { label: "Skills", icon: "Code", targetId: "skills" },
+  { label: "Experience", icon: "Briefcase", targetId: "experience" },
+  { label: "About Hanz", icon: "User", targetId: "about" },
+  { label: "Contact", icon: "Mail", targetId: "contact" },
+];
 
 const App = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [visibleSections, setVisibleSections] = useState({
+    Projects: false,
+    WebApp: false,
+    Footer: false,
+  });
+
+  const refs = {
+    Projects: useRef(),
+    WebApp: useRef(),
+    Footer: useRef(),
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const section = Object.keys(refs).find(key => refs[key].current === entry.target);
+            if (section) {
+              setVisibleSections(prev => ({ ...prev, [section]: true }));
+              obs.unobserve(entry.target);
+            }
+          }
+        });
+      },
+      { rootMargin: "100px" }
+    );
+
+    Object.values(refs).forEach(ref => ref.current && observer.observe(ref.current));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isSidebarOpen ? "hidden" : "auto";
+  }, [isSidebarOpen]);
+
   const loadingFallback = (
     <div className="h-screen flex items-center justify-center">
-      <div className="w-8 h-8 border-4 border-t-transparent border-[#ff914d] rounded-full animate-spin"></div>
+      <div className="w-8 h-8 border-4 border-t-transparent border-[#ff914d] rounded-full animate-spin" />
     </div>
   );
 
-  const [showProjects, setShowProjects] = useState(false);
-  const [showWebApp, setShowWebApp] = useState(false);
-  const [showFooter, setShowFooter] = useState(false);
-
-  const projectsRef = useRef();
-  const webAppRef = useRef();
-  const footerRef = useRef();
-
   const components = [
-  { id: "Navbar", node: <Navbar /> },
-  { id: "Content", node: <Content /> },
-  { id: "Projects", node: <Projects />, ref: projectsRef },
-  { id: "WebApp", node: <WebApp />, ref: webAppRef },
-  { id: "Footer", node: <Footer />, ref: footerRef }
-];
-
-  useEffect(() => {
-  const obs = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) {
-      if (entry.target === projectsRef.current) setShowProjects(true);
-      if (entry.target === webAppRef.current)  setShowWebApp(true);
-      if (entry.target === footerRef.current)  setShowFooter(true);
-      obs.unobserve(entry.target);
-    }
-  }, { rootMargin: "100px" });
-
-  [projectsRef, webAppRef, footerRef].forEach(ref => {
-    if (ref.current) obs.observe(ref.current);
-  });
-
-  const checkInView = (ref, setter) => {
-    if (!ref.current) return;
-    const { top, bottom } = ref.current.getBoundingClientRect();
-    
-    if (top < window.innerHeight + 100 && bottom > -100) {
-      setter(true);
-      obs.unobserve(ref.current);
-    }
-  };
-  checkInView(projectsRef, setShowProjects);
-  checkInView(webAppRef,  setShowWebApp);
-  checkInView(footerRef,  setShowFooter);
-
-  return () => obs.disconnect();
-}, []);
-
+    { id: "Navbar", node: <componentsLazy.Navbar openSidebar={() => setIsSidebarOpen(true)} /> },
+    { id: "Content", node: <componentsLazy.Content /> },
+    { id: "Projects", node: <componentsLazy.Projects />, ref: refs.Projects },
+    { id: "WebApp", node: <componentsLazy.WebApp />, ref: refs.WebApp },
+    { id: "Footer", node: <componentsLazy.Footer />, ref: refs.Footer },
+  ];
 
   return (
     <>
-      {components.map((comp, i) => {
-        if (comp.id === "Projects" && !showProjects) {
-          return <div ref={projectsRef} key={i} className="min-h-[80vh]" />
-        }
+      <Sidebar isOpen={isSidebarOpen} navLinks={navLinks} closeSidebar={() => setIsSidebarOpen(false)} />
 
-        if (comp.id === "WebApp" && !showWebApp) {
-          return <div ref={webAppRef} key={i} className="min-h-[80vh]" />;
+      {components.map(({ id, node, ref }) => {
+        if (ref && !visibleSections[id]) {
+          return <div key={id} ref={ref} className="min-h-[80vh]" />;
         }
-
-        if (comp.id === "Footer" && !showFooter) {
-          return <div ref={footerRef} key={i} className="min-h-[80vh]" />
-        }
-
         return (
-          <div ref={comp.ref} key={i}>
-            <Suspense fallback={loadingFallback}>
-              {comp.node}
-            </Suspense>
+          <div key={id} ref={ref}>
+            <Suspense fallback={loadingFallback}>{node}</Suspense>
           </div>
         );
       })}
