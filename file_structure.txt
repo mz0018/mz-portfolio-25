@@ -1,0 +1,21 @@
+src/
+├── App.tsx
+├── main.tsx
+│
+├── components/
+│   ├── ui/
+│   │   └── Button.tsx
+│   │
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   ├── ProjectCard.tsx
+│   └── ProjectList.tsx
+
+├── data/
+│   └── projects.ts
+│
+├── styles/
+│   └── global.css
+│
+└── utils/
+    └── formatDate.ts

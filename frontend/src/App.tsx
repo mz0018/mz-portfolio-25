@@ -1,12 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Container } from './components/Container';
+import { Navbar } from './components/Navbar';
+import { Footer } from './components/Footer';
 
-function App() {
+const App = () => {
 
   return (
     <>
-      <p className="text-red-500 text-2xl">Under Construction pelang daytuy parey!</p>
+    <Navbar />
+      <Container>
+        Hello, Button Change theme coming soon!
+      </Container>
+    <Footer />
     </>
   )
 }
