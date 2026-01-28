@@ -1,35 +1,34 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Sidebar } from "./Sidebar"
+import { useTheme } from "../hooks/useTheme"
 
 export function Navbar() {
+  const { toggleTheme } = useTheme()
+
   const [open, setOpen] = useState(false)
+  const [theme, setTheme] = useState("light")
 
   return (
     <>
       <header className="border-b">
-        <nav className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
-          <img
-            src="/img/logo.png"
-            alt="Logo"
-            className="h-14 w-14 sm:h-16 sm:w-16"
-          />
+        <nav className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between ">
+          {/* Logo = theme toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="rounded focus:outline-none cursor-pointer"
+          >
+            <img
+              src="/img/logo.png"
+              alt="Logo"
+              className="h-14 w-14 sm:h-16 sm:w-16"
+            />
+          </button>
 
           <ul className="hidden md:flex gap-8 text-sm">
-            <li>
-              <a href="#projects" className="hover:underline">
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="hover:underline">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:underline">
-                Contact
-              </a>
-            </li>
+            <li><a href="#projects" className="hover:underline">Projects</a></li>
+            <li><a href="#about" className="hover:underline">About</a></li>
+            <li><a href="#contact" className="hover:underline">Contact</a></li>
           </ul>
 
           <button

@@ -14,7 +14,7 @@ export function Sidebar({ open, onClose }: SidebarProps) {
       />
 
       <aside
-        className={`fixed right-0 top-0 z-50 h-full w-64 bg-white shadow-lg transform transition-transform md:hidden ${
+        className={`fixed right-0 top-0 z-50 h-full w-64 bg-[var(--sidebar-color)] shadow-lg transform transition-transform md:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
