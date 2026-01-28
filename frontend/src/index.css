@@ -22,6 +22,11 @@
 
 }
 
+
+[data-theme="dark"] .logo {
+  filter: invert(1);
+}
+
 [data-theme="light"] {
     --bg-color: #424b57;
     --h1-color: #424b57;
@@ -38,3 +43,9 @@
 body {
     background-color: var(--bg-color);
 }
+
+.logo {
+  transition: filter 0.3s;
+}
+
+

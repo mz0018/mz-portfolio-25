@@ -21,7 +21,7 @@ export function Navbar() {
             <img
               src="/img/logo.png"
               alt="Logo"
-              className="h-14 w-14 sm:h-16 sm:w-16"
+              className="logo h-14 w-14 sm:h-16 sm:w-16"
             />
           </button>
 
