@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Sidebar } from "./Sidebar"
 import { useTheme } from "../hooks/useTheme"
+import { List } from "phosphor-react"
 
 export function Navbar() {
   const { toggleTheme } = useTheme()
@@ -8,11 +9,16 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
   const [theme, setTheme] = useState("light")
 
+  const links = [
+    { name: "Projects", href: "#projects", },
+    { name: "About", href: "#about", },
+    { name: "Contact", href: "#contacts", },
+  ]
+
   return (
     <>
       <header className="border-b">
         <nav className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between ">
-          {/* Logo = theme toggle */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
@@ -25,26 +31,19 @@ export function Navbar() {
             />
           </button>
 
-          <ul className="hidden md:flex gap-8 text-sm">
-            <li><a href="#projects" className="hover:underline">Projects</a></li>
-            <li><a href="#about" className="hover:underline">About</a></li>
-            <li><a href="#contact" className="hover:underline">Contact</a></li>
+          
+          <ul className="hidden md:flex text-sm gap-8">
+            {links.map((li) => (
+              <li key={li.name}><a href={li.href} className="link focus:outline-none">{li.name}</a></li>
+            ))}
           </ul>
 
           <button
             onClick={() => setOpen(true)}
-            className="md:hidden rounded-md p-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-black"
+            className="md:hidden rounded-md p-2 hover:bg-gray-100 focus:outline-none"
             aria-label="Open menu"
           >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            <List size={24} weight="bold" className="icon" />
           </button>
         </nav>
       </header>
