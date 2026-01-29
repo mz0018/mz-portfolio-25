@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Sidebar } from "./Sidebar"
 import { useTheme } from "../hooks/useTheme"
 import { List } from "phosphor-react"
@@ -7,7 +7,6 @@ export function Navbar() {
   const { toggleTheme } = useTheme()
 
   const [open, setOpen] = useState(false)
-  const [theme, setTheme] = useState("light")
 
   const links = [
     { name: "Projects", href: "#projects", },
