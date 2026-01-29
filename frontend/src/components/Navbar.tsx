@@ -17,7 +17,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="border-b">
+      <header className="shadow-xl">
         <nav className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between ">
           <button
             onClick={toggleTheme}

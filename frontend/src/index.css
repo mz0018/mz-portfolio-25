@@ -1,12 +1,16 @@
 @import "tailwindcss";
 
+/* ===============================
+   DEFAULT THEME (DARK)
+   =============================== */
+
 :root {
-  --bg-color: #fafaff; /**Main white color*/
-  --text-color: rgba(255, 255, 255, 0.87);
-  --h1-color: #ffffff;
-  --p-color: #d1d5db;
+  --bg-color: #1c1c1e;
+  --text-color: #e5e7eb;
+  --h1-color: #f1f5f9;
+  --p-color: #cbd5e1;
   --link-color: #93c5fd;
-  --icon-color: #1c1c1c;
+  --icon-color: #e5e7eb;
   --border-color: #374151;
   --sidebar-color: #111827;
 
@@ -18,35 +22,46 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  transition: background-color 0.3s, color 0.3s;
-
 }
 
-
-[data-theme="light"] .logo {
-  filter: invert(1);
-}
+/* ===============================
+   LIGHT THEME
+   =============================== */
 
 [data-theme="light"] {
-    --bg-color: #1c1c1c;
-    --h1-color: #424b57;
-    --p-color: #424b57;
-    --span-color: #424b57;
-    --link-color: #424b57;
-    --icon-color: white;
-    --border-color: #424b57;
-    --button-color: #424b57;
-    --hover-button-color: #424b57;
-    --sidebar-color: #424b57;
+  --bg-color: #fafaff;
+  --text-color: #1f2937;
+  --h1-color: #111827;
+  --p-color: #374151;
+  --link-color: #2563eb;
+  --icon-color: #1f2937;
+  --border-color: #d1d5db;
+  --sidebar-color: #e5e7eb;
 }
 
+/* ===============================
+   ENABLE TRANSITIONS ONLY AFTER LOAD
+   =============================== */
+
+html.theme-transition * {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ===============================
+   ELEMENTS
+   =============================== */
+
 body {
-    background-color: var(--bg-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .logo {
   transition: filter 0.3s;
+}
+
+[data-theme="dark"] .logo {
+  filter: invert(1);
 }
 
 .icon {
