@@ -8,7 +8,15 @@ const App = () => {
     <>
     <Navbar />
       <Container>
-        Hello, Button Change theme coming soon!
+        <span>
+          Komaen kana lab, ay mess u!
+        </span>
+        <span
+          className="ml-1 inline-block text-red-500 animate-pulse"
+          aria-hidden
+        >
+          ❤
+        </span>
       </Container>
     <Footer />
     </>

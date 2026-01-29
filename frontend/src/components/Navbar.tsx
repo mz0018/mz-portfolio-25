@@ -40,7 +40,7 @@ export function Navbar() {
 
           <button
             onClick={() => setOpen(true)}
-            className="md:hidden rounded-md p-2 hover:bg-gray-100 focus:outline-none"
+            className="md:hidden rounded-md p-2 focus:outline-none"
             aria-label="Open menu"
           >
             <List size={24} weight="bold" className="icon" />
