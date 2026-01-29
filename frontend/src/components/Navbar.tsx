@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Sidebar } from "./Sidebar"
 import { useTheme } from "../hooks/useTheme"
 import { List } from "phosphor-react"
@@ -7,18 +7,17 @@ export function Navbar() {
   const { toggleTheme } = useTheme()
 
   const [open, setOpen] = useState(false)
-  const [theme, setTheme] = useState("light")
 
   const links = [
-    { name: "Projects", href: "#projects", },
-    { name: "About", href: "#about", },
-    { name: "Contact", href: "#contacts", },
+    { name: "Projects", href: "#projects" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contacts" },
   ]
 
   return (
     <>
       <header className="shadow-xl">
-        <nav className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between ">
+        <nav className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
@@ -31,10 +30,13 @@ export function Navbar() {
             />
           </button>
 
-          
           <ul className="hidden md:flex text-sm gap-8">
             {links.map((li) => (
-              <li key={li.name}><a href={li.href} className="link focus:outline-none">{li.name}</a></li>
+              <li key={li.name}>
+                <a href={li.href} className="link focus:outline-none">
+                  {li.name}
+                </a>
+              </li>
             ))}
           </ul>
 
