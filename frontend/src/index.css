@@ -12,7 +12,7 @@
   --link-color: #b2b2b2;
   --icon-color: #e5e7eb;
   --border-color: #374151;
-  /* --sidebar-color: #111827; */
+  --sidebar-color: #111827;
 
   font-family: "Roboto", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -36,7 +36,7 @@
   --link-color: #697077;
   --icon-color: #1f2937;
   --border-color: #d1d5db;
-  /* --sidebar-color: #e5e7eb; */
+  --sidebar-color: #e5e7eb;
 }
 
 /* ===============================

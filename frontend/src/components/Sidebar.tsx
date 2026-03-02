@@ -4,6 +4,12 @@ type SidebarProps = {
 }
 
 export function Sidebar({ open, onClose }: SidebarProps) {
+  const links = [
+    { name: "Projects", href: "#projects" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contact" },
+  ]
+
   return (
     <>
       <div
@@ -31,21 +37,13 @@ export function Sidebar({ open, onClose }: SidebarProps) {
 
         <nav className="px-4 py-6">
           <ul className="flex flex-col gap-6 text-sm">
-            <li>
-              <a href="#projects" onClick={onClose} className="hover:underline">
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#about" onClick={onClose} className="hover:underline">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#contact" onClick={onClose} className="hover:underline">
-                Contact
-              </a>
-            </li>
+            {links.map((li) => (
+              <li key={li.name}>
+                <a href={li.href} onClick={onClose} className="hover:underline">
+                  {li.name}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </aside>

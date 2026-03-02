@@ -1,6 +1,7 @@
 import { Container } from './components/Container';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { Hero, About, Projects, Contact } from './components/sections';
 
 const App = () => {
 
@@ -8,15 +9,10 @@ const App = () => {
     <>
     <Navbar />
       <Container>
-        <span>
-          Komaen kana lab, ay mess u!
-        </span>
-        <span
-          className="ml-1 inline-block text-red-500 animate-pulse"
-          aria-hidden
-        >
-          ❤
-        </span>
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
       </Container>
     <Footer />
     </>

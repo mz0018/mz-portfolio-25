@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Sidebar } from "./Sidebar"
 import { useTheme } from "../hooks/useTheme"
 import { List } from "phosphor-react"
+import { config } from "../config"
 
 export function Navbar() {
   const { toggleTheme } = useTheme()
@@ -11,7 +12,7 @@ export function Navbar() {
   const links = [
     { name: "Projects", href: "#projects" },
     { name: "About", href: "#about" },
-    { name: "Contact", href: "#contacts" },
+    { name: "Contact", href: "#contact" },
   ]
 
   return (
@@ -24,8 +25,8 @@ export function Navbar() {
             className="rounded focus:outline-none cursor-pointer"
           >
             <img
-              src="/img/logo.png"
-              alt="Logo"
+              src={config.personal.logo}
+              alt={config.personal.name}
               className="logo h-14 w-14 sm:h-16 sm:w-16"
             />
           </button>
