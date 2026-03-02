@@ -25,10 +25,10 @@ export const config = {
     title: "Projects",
     items: [
       {
-        name: "Project One",
-        description: "A brief description of what this project does.",
-        tech: ["React", "TypeScript", "Tailwind"],
-        link: "https://github.com/yourusername/project-one",
+        name: "PJNV Visitors Logs",
+        description: "A private, internal web application for Provincial Jail of Nueva Vizcaya that enables automated face recognition for visitor identification and inmate management.",
+        tech: ["React Vite", "Tailwind CSS", "Tensorflow.js", "Face-api.js", "Node.js", "Express", "MongoDB", "Python"],
+        link: "https://github.com/mz0018/bjmp_biometrics.git",
         demo: "https://project-one.demo.com",
       },
       {
