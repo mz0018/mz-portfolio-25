@@ -1,7 +1,10 @@
+import { useState } from "react"
 import { config } from "../../config"
+import { DemoModal } from "../modals/DemoModal"
 
 export function Projects() {
   const { items } = config.projects
+  const [selectedProject, setSelectedProject] = useState<typeof items[number] | null>(null)
 
   return (
     <section id="projects" className="py-16">
@@ -42,19 +45,29 @@ export function Projects() {
                 </a>
               )}
               {project.demo && (
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[var(--link-color)] hover:underline"
-                >
-                  Demo
-                </a>
+                project.name === "Pro Animal Welfare System" ? (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--link-color)] hover:underline"
+                  >
+                    Visit
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => setSelectedProject(project)}
+                    className="text-[var(--link-color)] hover:underline cursor-pointer"
+                  >
+                    Demo
+                  </button>
+                )
               )}
             </div>
           </article>
         ))}
       </div>
+      <DemoModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   )
 }

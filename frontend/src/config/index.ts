@@ -18,42 +18,37 @@ export const config = {
   about: {
     title: "About Me",
     content: `I'm a developer who loves building clean, minimal, and functional websites.
-      I specialize in frontend development and creating great user experiences.`,
+I specialize in backend development, creating scalable APIs, efficient systems, and reliable server-side applications.`,
   },
 
   projects: {
     title: "Projects",
     items: [
       {
+        name: "Pro Animal Welfare System",
+        description: "A veterinary practice management platform with dual client and admin interfaces. Clients can browse products and book appointments via a custom interactive calendar. Admins manage products, appointments, orders, and follow-up checkups through a dedicated dashboard.",
+        tech: ["MongoDB", "Express.js", "React Vite + TypeScript", "Node.js", "Redis", "AWS S3"],
+        link: "https://github.com/mz0018/paws_refactored",
+        demo: "https://proaws.online"
+      },
+      {
         name: "PJNV Visitors Logs",
-        description: "A private, internal web application for Provincial Jail of Nueva Vizcaya that enables automated face recognition for visitor identification and inmate management.",
+        description: "Capstone project: A private internal web application for the Provincial Jail of Nueva Vizcaya featuring automated face recognition for visitor identification and inmate management.",
         tech: ["React Vite", "Tailwind CSS", "Tensorflow.js", "Face-api.js", "Node.js", "Express", "MongoDB", "Python"],
         link: "https://github.com/mz0018/bjmp_biometrics.git",
         demo: "https://project-one.demo.com",
-      },
-      {
-        name: "Project Two",
-        description: "Another project with a short description.",
-        tech: ["Vue", "Node.js", "PostgreSQL"],
-        link: "https://github.com/yourusername/project-two",
-      },
-      {
-        name: "Project Three",
-        description: "Yet another awesome project.",
-        tech: ["Next.js", "Prisma", "MongoDB"],
-        link: "https://github.com/yourusername/project-three",
-        demo: "https://project-three.demo.com",
+        demoNote: "Requires Docker. Contact me for the .env file.",
       },
     ],
   },
 
   contact: {
     title: "Get In Touch",
-    email: "your@email.com",
+    email: "martinezhanzmenzi@email.com",
     message: "Feel free to reach out for collaborations or just a friendly hello!",
   },
 
   footer: {
-    text: "© {year} {name}. All rights reserved.",
+    text: "© {2026} {Hanz Menzi}. All rights reserved.",
   },
 }
