@@ -32,6 +32,13 @@ I specialize in backend development, creating scalable APIs, efficient systems, 
         demo: "https://proaws.online"
       },
       {
+        name: "Client Satisfactory Feedback",
+        description: "CSF is LGU Solano's Client Satisfaction Measurement (CSM) tool. It replaces paper forms with a quick and private digital survey that helps offices understand client experiences and improve public services.",
+        tech: ["MongoDB", "Express.js", "React Vite + TypeScript", "Node.js"],
+        link: "https://github.com/mz0018/solano_csf.git",
+        demo: "https://csf.proaws.online"
+      },
+      {
         name: "PJNV Visitors Logs",
         description: "Capstone project: A private internal web application for the Provincial Jail of Nueva Vizcaya featuring automated face recognition for visitor identification and inmate management.",
         tech: ["React Vite", "Tailwind CSS", "Tensorflow.js", "Face-api.js", "Node.js", "Express", "MongoDB", "Python"],
