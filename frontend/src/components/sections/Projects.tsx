@@ -45,7 +45,7 @@ export function Projects() {
                 </a>
               )}
               {project.demo && (
-                project.name === "Pro Animal Welfare System" ? (
+                project.name === "Pro Animal Welfare System" || project.name === "Client Satisfactory Feedback" ? (
                   <a
                     href={project.demo}
                     target="_blank"
